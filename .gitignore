@@ -1,0 +1,14 @@
+# Ignore SASS compiled files
+*sass/
+
+# Ignore the `node_modules` folder (if using Node.js)
+node_modules/
+
+# Ignore `.env` file for environment variables
+.env
+
+# Ignore the Git configuration file
+.git/
+
+# Ignore any other temporary files
+*.log
