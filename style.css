@@ -1,0 +1,149 @@
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+
+/* ------------------------ */
+/* VARIABLES */
+/* ------------------------ */
+:root {
+  --neutral-50: #fafafa;
+  --neutral-100: #f4f4f5;
+  --neutral-500: #737373;
+  --neutral-700: #3f3f46;
+  --neutral-800: #262626;
+  --neutral-900: #171717;
+  --neutral-950: #0a0a0a;
+
+  --indigo-50: #eef2ff;
+  --indigo-400: #818cf8;
+  --indigo-500: #6366f1;
+  --indigo-600: #4f46e5;
+  --indigo-700: #4338ca;
+}
+
+/* ------------------------ */
+/* RESET & GENERAL STYLES */
+/* ------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+}
+
+.container {
+  max-width: 968px;
+  margin: 0 auto;
+  padding: 0 8px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
+}
+
+/* ------------------------ */
+/* HEADER STYLES */
+/* ------------------------ */
+.site-header {
+  background: linear-gradient(45deg, var(--indigo-500), var(--indigo-600));
+  padding: 1.6rem 0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  text-decoration: none;
+}
+
+.logo {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--neutral-50);
+  font-size: 1.8rem;
+}
+
+.btn {
+  background-color: transparent;
+  border: 1px solid var(--neutral-100);
+  color: var(--neutral-100);
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 1.2rem 2.4rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-share {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s;
+}
+
+.btn-share:hover {
+  background-color: var(--indigo-700);
+}
+
+.icon-share {
+  width: 2rem;
+  height: inherit;
+  fill: var(--neutral-100);
+}
+
+/* ------------------------ */
+/* PASSWORD CHECKER STYLES */
+/* ------------------------ */
+.password-tool {
+  padding: 8rem 0;
+  background-color: var(--neutral-50);
+}
+
+.tool-intro {
+  margin-bottom: 4.8rem;
+  text-align: center;
+}
+
+.tool-intro h1 {
+  text-transform: uppercase;
+  /* letter-spacing: 1px; */
+  line-height: 1.2;
+  font-weight: 800;
+  font-size: 2.4rem;
+  color: var(--neutral-950);
+  margin-bottom: 1.2rem;
+}
+
+.tool-intro p {
+  color: var(--neutral-700);
+  line-height: 1.6;
+}
