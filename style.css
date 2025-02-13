@@ -1,28 +1,22 @@
 /*
 SPACING SYSTEM (px)
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+ 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 
 FONT SIZE SYSTEM (px)
-10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 48 / 60 / 72 
 */
 
 /* ------------------------ */
 /* VARIABLES */
 /* ------------------------ */
 :root {
-  --neutral-50: #fafafa;
-  --neutral-100: #f4f4f5;
-  --neutral-500: #737373;
-  --neutral-700: #3f3f46;
-  --neutral-800: #262626;
-  --neutral-900: #171717;
-  --neutral-950: #0a0a0a;
-
-  --indigo-50: #eef2ff;
-  --indigo-400: #818cf8;
-  --indigo-500: #6366f1;
-  --indigo-600: #4f46e5;
-  --indigo-700: #4338ca;
+  --primary-color: #3d55cc; /* Used for actions */
+  --darkest-color: #141a33; /* Used for heading text */
+  --dark-color: #505673; /* Used for secondary tex */
+  --medium-color: #878ca8; /* Used for non-decorative borders */
+  --light-color: #dadef2; /* Used for decorative borders */
+  --lightest-color: #f5f6fa; /* Used for alternate background */
+  --white: #ffffff; /* Used for the main background */
 }
 
 /* ------------------------ */
@@ -45,7 +39,7 @@ body {
 }
 
 .container {
-  max-width: 968px;
+  max-width: 768px;
   margin: 0 auto;
   padding: 0 8px;
 }
@@ -66,7 +60,7 @@ body {
 /* HEADER STYLES */
 /* ------------------------ */
 .site-header {
-  background: linear-gradient(45deg, var(--indigo-500), var(--indigo-600));
+  background: var(--primary-color);
   padding: 1.6rem 0;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
@@ -83,21 +77,21 @@ body {
 
 .logo {
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1px;
-  color: var(--neutral-50);
-  font-size: 1.8rem;
+  color: var(--lightest-color);
+  font-size: 1.6rem;
 }
 
 .btn {
-  background-color: transparent;
-  border: 1px solid var(--neutral-100);
-  color: var(--neutral-100);
+  background-color: var(--lightest-color);
+  border: none;
+  color: var(--dark-color);
   cursor: pointer;
   border-radius: 4px;
-  padding: 1.2rem 2.4rem;
+  padding: 0.8rem 1.2rem;
   font-family: inherit;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -111,13 +105,13 @@ body {
 }
 
 .btn-share:hover {
-  background-color: var(--indigo-700);
+  background-color: var(--light-color);
 }
 
 .icon-share {
-  width: 2rem;
+  width: 1.6rem;
   height: inherit;
-  fill: var(--neutral-100);
+  fill: var(--dark-color);
 }
 
 /* ------------------------ */
@@ -125,25 +119,145 @@ body {
 /* ------------------------ */
 .password-tool {
   padding: 8rem 0;
-  background-color: var(--neutral-50);
+  background-color: var(--white);
 }
 
+/* Tool Heading section */
 .tool-intro {
   margin-bottom: 4.8rem;
   text-align: center;
 }
 
 .tool-intro h1 {
-  text-transform: uppercase;
-  /* letter-spacing: 1px; */
+  text-transform: capitalize;
   line-height: 1.2;
   font-weight: 800;
-  font-size: 2.4rem;
-  color: var(--neutral-950);
+  font-size: 3rem;
+  color: var(--darkest-color);
   margin-bottom: 1.2rem;
 }
 
+.tool-intro h1 span {
+  display: block;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--primary-color);
+}
+
 .tool-intro p {
-  color: var(--neutral-700);
+  color: var(--dark-color);
   line-height: 1.6;
+  font-size: 1.4rem;
+}
+
+/* Tool Section */
+.tool-interface {
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: var(--lightest-color);
+  padding: 2.4rem;
+  font-size: 1.6rem;
+}
+
+.icon-tips {
+  display: block;
+  width: 1.6rem;
+  height: inherit;
+}
+
+.password-tip {
+  font-size: 1.4rem;
+  margin-bottom: 2.4rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  color: var(--lightest-color);
+}
+
+.password-form {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 2.4rem;
+  padding: 1.2rem 1.6rem;
+  border: 1px solid var(--lightest-color);
+  border-radius: 6px;
+  background: linear-gradient(
+    180deg,
+    var(--white) 0%,
+    var(--lightest-color) 100%
+  );
+  transition: all 0.3s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.input-password {
+  font-family: inherit;
+  border: none;
+  width: 100%;
+  outline: none;
+  border-right: 1px solid var(--light-color);
+  font-size: 1.6rem;
+  padding: 12px 16px;
+  background-color: transparent;
+}
+
+.input-password::placeholder {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #bbb;
+  font-style: italic;
+}
+
+.password-form:has(.input-password:focus) {
+  border: 2px solid #4a90e2;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.btn-icon {
+  border: 1px solid var(--light-color);
+  background-color: var(--lightest-color);
+  outline: none;
+  border-radius: 8px; /* Ensures a perfect round shape */
+  padding: 1.2rem; /* Adjust padding if needed */
+  width: 4.8rem; /* Adjust size */
+  height: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon {
+  width: 2.4rem;
+  height: inherit;
+  fill: var(--darkest-color);
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  z-index: 0;
+}
+
+.progress {
+  height: 100%;
+  width: 0;
+  border-radius: 4px;
+  transition: width 0.3s;
 }

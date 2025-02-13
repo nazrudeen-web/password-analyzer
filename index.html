@@ -16,7 +16,7 @@
     />
     <link rel="icon" href="favicon.ico?v=2" type="image/x-icon" />
 
-    <!-- Google Font: DM Sans -->
+    <!-- Google Font: POPPINS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -66,11 +66,114 @@
         <div class="container">
           <div class="tool-intro">
             <h1 itemprop="name">
-              Unleash the Power of Unbreakable Passwords – Your Ultimate Password Strength Checker
+              <span>Unleash the Power of Unbreakable Passwords</span>Your
+              Ultimate Password Strength Checker
             </h1>
             <p itemprop="description">
-              Test your password strength instantly and protect your accounts from hackers. Our free tool ensures your passwords are strong, secure, and ready to defend against cyber threats. Stay safe with confidence!
+              Test your password strength instantly and protect your accounts
+              from hackers. Our free tool ensures your passwords are strong,
+              secure, and ready to defend against cyber threats. Stay safe with
+              confidence!
             </p>
+          </div>
+
+          <div class="tool-interface">
+            <p class="password-tip">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6 icon-tips"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+                  />
+                </svg>
+              </span>
+              Use at least 8 characters, including numbers, symbols, and
+              uppercase letters.
+            </p>
+
+            <form
+              class="password-form"
+              itemprop="applicationCategory"
+              content="Security Tool"
+            >
+              <label for="password-input" class="visually-hidden"
+                >Enter your password:</label
+              >
+              <input
+                type="password"
+                id="password-input"
+                placeholder="Enter your password here"
+                class="input-password"
+                itemprop="input"
+              />
+              <div class="action-buttons">
+                <button
+                  type="button"
+                  class="btn-icon toggle-visibility"
+                  aria-label="Show or hide password"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    class="icon icon-visibility"
+                  >
+                    <path
+                      d="m15.29 18.12-1.29-1.34-.07-.07-1.27-1.27a4.07 4.07 0 0 1 -.61.06 3.5 3.5 0 0 1 -3.55-3.5 4.07 4.07 0 0 1 .06-.61l-2-2-1.56-1.52a15.89 15.89 0 0 0 -2.87 3.63 1 1 0 0 0 0 1c.63 1.09 4 6.5 9.89 6.5h.25a9.48 9.48 0 0 0 3.23-.67z"
+                    />
+                    <path
+                      d="m8.59 5.76 2.8 2.8a4.07 4.07 0 0 1 .61-.06 3.5 3.5 0 0 1 3.5 3.5 4.07 4.07 0 0 1 -.06.61l2.68 2.68.84.84a15.89 15.89 0 0 0 2.91-3.63 1 1 0 0 0 0-1c-.64-1.11-4.16-6.68-10.14-6.5a9.48 9.48 0 0 0 -3.23.67z"
+                    />
+                    <path
+                      d="m20.71 19.29-1.3-1.29-2-2-9.52-9.53-1.47-1.47-1.71-1.71a1 1 0 0 0 -1.42 1.42l2.24 2.29 1.75 1.7 7.31 7.3.07.07 1.34 1.34.59.59 2.7 2.71a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="btn-icon copy-password"
+                  aria-label="Copy password"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    class="icon icon-copy"
+                  >
+                    <path
+                      d="m16 12.9v4.2c0 3.5-1.4 4.9-4.9 4.9h-4.2c-3.5 0-4.9-1.4-4.9-4.9v-4.2c0-3.5 1.4-4.9 4.9-4.9h4.2c3.5 0 4.9 1.4 4.9 4.9z"
+                    />
+                    <path
+                      d="m17.0998 2h-4.2c-3.08312 0-4.52906 1.09409-4.83029 3.73901-.06302.55334.39525 1.01099.95216 1.01099h2.07813c4.2 0 6.15 1.95 6.15 6.15v2.0781c0 .5569.4576 1.0152 1.011.9522 2.6449-.3013 3.739-1.7472 3.739-4.8303v-4.2c0-3.5-1.4-4.9-4.9-4.9z"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="btn-icon generate-password"
+                  aria-label="Generate random password"
+                >
+                  <svg
+                    viewBox="0 0 1024 1024"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-random"
+                  >
+                    <path
+                      d="m867.542 263.893-305.007-176.435c-28.637-16.566-75.066-16.566-103.705 0l-305.007 176.435c-22.526 13.03-27.32 32.427-14.408 48.176l347.368 198.34c17.96 3.572 37.83 3.013 55.17-1.715l335.624-192.06c18.058-16.407 14.725-38.42-10.036-52.743zm-548.776 55.02c-24.917 14.783-65.314 14.783-90.23 0-24.916-14.785-24.914-38.754 0-53.538 24.918-14.784 65.315-14.784 90.23 0 24.917 14.782 24.917 38.752 0 53.537zm237.954 141.187c-24.917 14.784-65.314 14.784-90.23 0s-24.914-38.753 0-53.537c24.918-14.784 65.315-14.784 90.23 0 24.917 14.784 24.917 38.753 0 53.537zm-90.232-194.206c24.917-14.784 65.314-14.784 90.23 0s24.916 38.753 0 53.537-65.315 14.785-90.23 0c-24.917-14.783-24.917-38.752 0-53.536zm90.232-87.13c-24.917 14.784-65.314 14.784-90.23 0s-24.914-38.753 0-53.537c24.918-14.784 65.315-14.784 90.23 0 24.917 14.784 24.917 38.753 0 53.537zm237.075 140.67c-24.917 14.783-65.314 14.783-90.23 0s-24.914-38.754 0-53.538c24.918-14.784 65.315-14.784 90.23 0 24.917 14.784 24.915 38.752 0 53.537zm94.72 6.338-355.185 203.256c-5.42 7.536-10.056 15.8-13.676 24.312h1.727v381.977c9.444 9.338 24.635 10.166 41.77.27l293.386-169.417c28.65-16.544 51.875-56.774 51.875-89.858v-314.882c0-19.146-7.788-31.683-19.894-35.66zm-245.565 469.61c.048 27.54-20.027 61.524-44.84 75.902s-44.965 3.708-45.013-23.833v-.194c-.048-27.54 20.027-61.524 44.84-75.903s44.965-3.708 45.013 23.833zm0-245.02c.048 27.54-20.027 61.523-44.84 75.902s-44.965 3.708-45.013-23.833v-.194c-.048-27.54 20.027-61.525 44.84-75.903s44.965-3.708 45.013 23.833zm111.817 180.462c.048 27.54-20.027 61.525-44.84 75.903s-44.965 3.708-45.013-23.833v-.195c-.048-27.542 20.027-61.526 44.84-75.904s44.965-3.708 45.013 23.833v.194zm0-245.02c.048 27.54-20.027 61.525-44.84 75.903s-44.965 3.708-45.013-23.833v-.195c-.048-27.542 20.027-61.525 44.84-75.904s44.965-3.708 45.013 23.833v.194zm111.818 180.463c.048 27.54-20.027 61.524-44.84 75.903s-44.965 3.708-45.013-23.833v-.195c-.048-27.54 20.027-61.525 44.84-75.903s44.965-3.71 45.013 23.832v.195zm0-245.02c.048 27.54-20.027 61.525-44.84 75.903s-44.965 3.708-45.013-23.833v-.195c-.048-27.54 20.027-61.525 44.84-75.903 24.81-14.38 44.965-3.71 45.013 23.832v.195zm-362.885 134.013c-4.214-10.41-9.977-20.502-16.832-29.414l-351.232-200.546c-13.015 3.367-21.49 16.152-21.49 36.128v314.882c0 33.085 23.224 73.315 51.874 89.86l293.385 169.417c18.756 10.83 35.185 8.822 44.296-3.14v-377.187zm-257.87 163.077c-.048 27.54-20.203 38.212-45.014 23.833s-44.887-48.362-44.84-75.903v-.195c.05-27.54 20.204-38.212 45.015-23.833s44.888 48.36 44.84 75.902v.195zm0-245.02c-.048 27.54-20.203 38.212-45.014 23.833s-44.887-48.362-44.84-75.903v-.195c.05-27.54 20.204-38.212 45.015-23.833s44.888 48.36 44.84 75.902v.195zm223.635 374.136c-.048 27.54-20.203 38.212-45.014 23.833s-44.886-48.362-44.838-75.903v-.195c.048-27.54 20.203-38.212 45.014-23.833s44.887 48.362 44.84 75.903v.195zm0-245.02c-.048 27.54-20.203 38.212-45.014 23.833s-44.886-48.362-44.838-75.903v-.195c.048-27.54 20.203-38.212 45.014-23.833s44.887 48.362 44.84 75.903v.195z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+              </div>
+            </form>
           </div>
         </div>
       </section>
