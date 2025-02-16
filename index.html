@@ -115,6 +115,7 @@
                 itemprop="input"
               />
               <div class="action-buttons">
+                <!-- SHOW OR HIDE PASSWORD -->
                 <button
                   type="button"
                   class="btn-icon toggle-visibility"
@@ -149,11 +150,13 @@
                     ></path>
                   </svg>
                 </button>
+                <!-- COPY PASSWORD -->
                 <button
                   type="button"
                   class="btn-icon copy-password"
                   aria-label="Copy password"
                 >
+                  <!-- COPY -->
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
@@ -167,7 +170,23 @@
                       d="M 18.5 5 C 15.480226 5 13 7.4802259 13 10.5 L 13 32.5 C 13 35.519774 15.480226 38 18.5 38 L 34.5 38 C 37.519774 38 40 35.519774 40 32.5 L 40 10.5 C 40 7.4802259 37.519774 5 34.5 5 L 18.5 5 z M 18.5 8 L 34.5 8 C 35.898226 8 37 9.1017741 37 10.5 L 37 32.5 C 37 33.898226 35.898226 35 34.5 35 L 18.5 35 C 17.101774 35 16 33.898226 16 32.5 L 16 10.5 C 16 9.1017741 17.101774 8 18.5 8 z M 11 10 L 9.78125 10.8125 C 8.66825 11.5545 8 12.803625 8 14.140625 L 8 33.5 C 8 38.747 12.253 43 17.5 43 L 30.859375 43 C 32.197375 43 33.4465 42.33175 34.1875 41.21875 L 35 40 L 17.5 40 C 13.91 40 11 37.09 11 33.5 L 11 10 z"
                     ></path>
                   </svg>
+                  <!-- COPY SUCCESS -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="100"
+                    height="100"
+                    viewBox="0 0 48 48"
+                    style="display: none"
+                    class="icon copy-success"
+                  >
+                    <path
+                      d="M 24 4 C 12.972 4 4 12.972 4 24 C 4 35.028 12.972 44 24 44 C 35.028 44 44 35.028 44 24 C 44 20.791 43.222047 17.767172 41.873047 15.076172 L 39.628906 17.320312 C 40.508906 19.371312 41 21.629 41 24 C 41 33.374 33.374 41 24 41 C 14.626 41 7 33.374 7 24 C 7 14.626 14.626 7 24 7 C 28.446 7 32.485578 8.7292031 35.517578 11.533203 L 37.638672 9.4121094 C 34.061672 6.0651094 29.273 4 24 4 z M 39.470703 10.986328 A 1.50015 1.50015 0 0 0 38.439453 11.439453 L 21.5 28.378906 L 17.560547 24.439453 A 1.50015 1.50015 0 1 0 15.439453 26.560547 L 20.439453 31.560547 A 1.50015 1.50015 0 0 0 22.560547 31.560547 L 40.560547 13.560547 A 1.50015 1.50015 0 0 0 39.470703 10.986328 z"
+                    ></path>
+                  </svg>
                 </button>
+                <!-- GENERATE RANDOM PASSWORD -->
                 <button
                   type="button"
                   class="btn-icon generate-password"
@@ -267,27 +286,23 @@
             <div class="password-results hidden">
               <p>
                 Password Strength:
-                <span id="strength" class="strength-value">Weak</span>
+                <span id="strength" class="strength-value"></span>
               </p>
               <p>
                 Time it takes to crack your password:
-                <span id="crack-time" class="crack-time-value"
-                  >less than seconds</span
-                >
+                <span id="crack-time" class="crack-time-value"></span>
               </p>
               <p>
                 Number of Guesses crack your password:
-                <span id="guesses" class="guess-count">100000</span>
+                <span id="guesses" class="guess-count"></span>
               </p>
               <div class="suggestion">
                 <p>Warning & suggestion:</p>
                 <p class="password-warnings">
-                  <span id="warning" class="warning-message">something</span>
+                  <span id="warning" class="warning-message"></span>
                 </p>
                 <p class="password-suggestions">
-                  <span id="suggestions" class="suggestion-text">
-                    something</span
-                  >
+                  <span id="suggestions" class="suggestion-text"> </span>
                 </p>
               </div>
             </div>
