@@ -120,42 +120,45 @@ body {
 /* PASSWORD CHECKER STYLES */
 /* ------------------------ */
 .password-tool {
-  padding: 8rem 0;
+  padding: 6.4rem 0;
   background-color: var(--white);
 }
 
 /* Tool Heading section */
 .tool-intro {
-  margin-bottom: 4.8rem;
+  margin-bottom: 6rem;
   text-align: center;
 }
 
-.tool-intro h1 {
-  text-transform: capitalize;
-  line-height: 1.2;
-  font-weight: 800;
-  font-size: 3rem;
-  color: var(--darkest-color);
-  margin-bottom: 1.2rem;
+.tool-intro .subheading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #4a4aff; /* Soft blue accent */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.25rem;
 }
 
-.tool-intro h1 span {
-  display: block;
-  font-size: 1.6rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-  color: var(--primary-color);
+.tool-intro h1 {
+  max-width: 968px;
+  margin: 0 auto;
+  /* text-transform: uppercase; */
+  line-height: 1.2;
+  /* letter-spacing: -0.5px; */
+  color: var(--darkest-color);
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
 }
 
 .tool-intro p {
-  max-width: 768px;
+  max-width: 968px;
   margin: 0 auto;
   color: var(--dark-color);
-  line-height: 1.8;
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin-top: 1.2rem;
 }
 
 /* Tool Section */
@@ -332,10 +335,10 @@ body {
 
 /* PASSWORD RESULTS */
 .password-results {
-  border-radius: 8px;
+  /* border-radius: 8px; */
   margin-top: 2.4rem;
-  padding: 3.2rem 2.4rem;
-  background-color: var(--lightest-color);
+  /* padding: 3.2rem 2.4rem; */
+  /* background-color: var(--lightest-color); */
   color: var(--darkest-color);
   font-size: 1.4rem;
   display: flex;
@@ -345,39 +348,62 @@ body {
   font-weight: 500;
 }
 
+.time-box {
+  background-color: var(--lightest-color);
+  padding: 2.4rem 1.2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
 .crack-time-value,
 .strength-value,
 .guess-count {
-  text-transform: uppercase;
-  margin-left: 8px;
-  font-size: 1.8rem;
-  font-weight: 600;
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 800;
+}
+
+.strength-guesses {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.4rem;
+}
+
+.strength-guesses p:first-child {
+  align-self: stretch;
+}
+
+.strength-guesses p {
+  background-color: var(--lightest-color);
+  padding: 2.4rem 1.2rem;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
 }
 
 .suggestion {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1.2rem;
+  background-color: var(--lightest-color);
+  padding: 2.4rem 1.2rem;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 1.8;
 }
 
 .warning-message,
 .suggestion-text {
   font-size: 1.6rem;
-  font-weight: 500;
-  text-transform: capitalize;
-  color: var(--darkest-color);
-}
-
-.privacy-note {
-  font-size: 1.6rem;
-  color: var(--darkest-color);
-  text-align: center;
-  margin-top: 4.8rem;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 /* FOR JAVASCRIPT */
 .hidden {
   display: none;
+}
+.valid {
+  color: #2b8a3e;
+  font-weight: 500;
+}
+.icon-highlight {
+  fill: #2b8a3e;
 }
