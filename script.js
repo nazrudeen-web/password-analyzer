@@ -39,3 +39,31 @@ copyButton.addEventListener('click', async () => {
     console.log('Failed to copy:', error);
   }
 });
+
+//  GENERATE RANDOM PASSWORD
+const generatePassword = document.querySelector('.generate-password');
+const randomIcon = document.querySelector('.icon-random');
+// Password generator function
+function generateStrongPassword() {
+  const password = PasswordGenerator.generatePassword({
+    length: 16,
+    uppercase: true,
+    lowercase: true,
+    digits: true,
+    symbols: true,
+  });
+  return password;
+}
+generatePassword.addEventListener('click', () => {
+  const randomPassword = generateStrongPassword();
+  passwordInput.value = randomPassword;
+  // Rotate the icon
+  randomIcon.style.transform = 'rotate(360deg)';
+  randomIcon.style.transition = 'transform 0.5s ease';
+  // Reset rotation after animation is complete
+  setTimeout(() => {
+    randomIcon.style.transform = 'rotate(0deg)';
+  }, 500);
+  //Dispatch an 'input' event so any input listeners get notified mean when generate random password strength result will show othewise not show result
+  passwordInput.dispatchEvent(new Event('input'));
+});
