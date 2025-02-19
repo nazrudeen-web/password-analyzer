@@ -396,6 +396,47 @@ body {
   font-weight: 800;
 }
 
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 52.5%;
+  }
+  .container {
+    padding: 0 12px;
+  }
+  .tool-interface {
+    padding: 2.4rem 1.6rem;
+  }
+  .password-form {
+    flex-direction: column;
+  }
+  .input-password {
+    border-right: 0;
+    text-align: center;
+    padding: 3rem 2.4rem;
+    border-bottom: 1px solid var(--light-color);
+  }
+  .action-buttons {
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    gap: 4.8rem;
+  }
+  .strength-guesses {
+    flex-direction: column;
+  }
+  .strength-guesses p {
+    align-self: stretch;
+  }
+  .password-feedback {
+    flex-direction: column;
+    text-align: center;
+  }
+  .password-criteria {
+    justify-content: space-around;
+    gap: 1.6rem;
+  }
+}
+
+
 /* FOR JAVASCRIPT */
 .hidden {
   display: none;

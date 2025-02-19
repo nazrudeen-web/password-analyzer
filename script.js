@@ -71,6 +71,15 @@ generatePassword.addEventListener('click', () => {
 
 // CHECK PASSWORD RESULTS
 passwordInput.addEventListener('input', () => {
+  const container = document.querySelector('.time-box');
+
+  if (container) {
+    window.scrollTo({
+      top: container.getBoundingClientRect().height  + 100,
+      behavior: 'smooth'
+    });
+  }
+
   document.querySelector('.char-count').textContent =
     passwordInput.value.length;
   validatePasswordCharacter(passwordInput.value);
@@ -130,7 +139,6 @@ function validatePasswordCharacter(password) {
     .classList.toggle('icon-highlight', containsSymbol);
 }
 
-// Format seconds
 function formatSeconds(seconds) {
   const units = [
     { label: 'trillion', value: 1e12 },
@@ -143,36 +151,73 @@ function formatSeconds(seconds) {
     { label: 'second', value: 1 },
   ];
 
-  let result = [];
   for (const unit of units) {
     if (seconds >= unit.value) {
       const count = Math.floor(seconds / unit.value);
-      seconds %= unit.value;
-      result.push(`${count} ${unit.label}${count > 1 ? 's' : ''}`);
+      return `${count} ${unit.label}${count > 1 ? 's' : ''}`;
     }
   }
 
-  return result.length > 0 ? result.join(', ') : 'less than a second';
+  return 'less than a second';
 }
 
-function updateProgressBar(score) {
-  const progressValues = [20, 40, 60, 80, 100];
-  const progressColors = [
-    '#FF0000',
-    '#D32F2F',
-    '#f08c00',
-    '#37b24d',
-    '#2b8a3e',
+function formatNumber(num) {
+  // Array of units from smallest to largest.
+  const units = [
+    "",
+    "thousand",
+    "million",
+    "billion",
+    "trillion",
+    "quadrillion",
+    "quintillion",
+    "sextillion",
+    "septillion",
+    "octillion",
   ];
 
-  progress.style.width = `${progressValues[score]}%`;
-  progress.style.backgroundColor = progressColors[score];
+  let unitIndex = 0;
+  // Keep dividing by 1000 until num is less than 1000
+  while (num >= 1000 && unitIndex < units.length - 1) {
+    num /= 1000;
+    unitIndex++;
+  }
+
+  // Format the number to 2 decimal places and add the appropriate unit.
+  return `${num.toFixed(0)} ${units[unitIndex]}`;
 }
 
-function resetProgressBar() {
-  progress.style.width = '0%';
-  progress.style.backgroundColor = '#ccc';
+
+
+const progressBar = document.getElementById("progress-bar");
+function updateProgressBar(strength) {
+  let width = 0;
+  let color = "";
+
+  if (strength === 0 || strength === 1) {
+      width = 25;
+      color = "linear-gradient(to right, #ff4b4b, #ff6b6b)"; // Red
+  } else if (strength === 2) {
+      width = 50;
+      color = "linear-gradient(to right, #ff9f43, #ffb84d)"; // Orange
+  } else if (strength === 3) {
+      width = 75;
+      color = "linear-gradient(to right, #45a049, #57d57b)"; // Light Green
+  } else if (strength === 4) {
+      width = 100;
+      color = "linear-gradient(to right, #1b8c00, #2bc400)"; // Dark Green
+  }
+
+  progressBar.style.width = width + "%";
+  progressBar.style.background = color;
 }
+
+
+function resetProgressBar() {
+  progressBar.style.width = '0%';
+  progressBar.style.background = '#ccc';
+}
+
 // Analyze password
 function analyzePassword(password) {
   const result = zxcvbn(password);
@@ -181,6 +226,7 @@ function analyzePassword(password) {
   const textColor = ['#FF0000', '#D32F2F', '#f08c00', '#37b24d', '#2b8a3e'];
 
   updateProgressBar(result.score);
+  console.log(result.score)
 
   // strength
   document.querySelector('.strength-value').textContent =
@@ -196,8 +242,8 @@ function analyzePassword(password) {
   document.getElementById('crack-time').style.color = textColor[result.score];
 
   // Number of guesses
-  document.getElementById('guesses').textContent =
-    result.guesses.toLocaleString() + ' attempts';
+  const attempts = result.guesses;
+  document.getElementById('guesses').textContent = `${formatNumber(attempts)} attempts`;
   document.getElementById('guesses').style.color = textColor[result.score];
 
   // Warnings & Suggestions
@@ -208,3 +254,7 @@ function analyzePassword(password) {
       ? result.feedback.suggestions.join(', ')
       : 'No specific suggestions.';
 }
+
+
+
+
