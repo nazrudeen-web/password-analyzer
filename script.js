@@ -71,14 +71,6 @@ generatePassword.addEventListener('click', () => {
 
 // CHECK PASSWORD RESULTS
 passwordInput.addEventListener('input', () => {
-  const container = document.querySelector('.time-box');
-
-  if (container) {
-    window.scrollTo({
-      top: container.getBoundingClientRect().height  + 100,
-      behavior: 'smooth'
-    });
-  }
 
   document.querySelector('.char-count').textContent =
     passwordInput.value.length;
