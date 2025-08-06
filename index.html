@@ -3,314 +3,494 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Check Password Strength | Free Online Password Strength Checker
-    </title>
+    <title>SecurePass - Professional Password Strength Analyzer</title>
     <meta
       name="description"
-      content="Test your password's strength instantly with our free online Password Strength Checker. Learn how to create secure, robust passwords and protect your online accounts from cyber threats."
+      content="Professional password strength analyzer with real-time feedback, security recommendations, and advanced password generation. Protect your digital identity with our comprehensive security tool."
     />
     <meta
       name="keywords"
-      content="password strength checker, free password test, online password security, strong password checker, password security tool, secure password generator, password analysis, check password strength"
+      content="password strength checker, password security, cybersecurity tool, password analyzer, secure password generator, digital security"
     />
     <link rel="icon" href="favicon.ico?v=2" type="image/x-icon" />
 
-    <!-- Google Font: POPPINS -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="style.css?v=123" />
+    <link rel="stylesheet" href="style.css?v=2024" />
   </head>
 
   <body>
-    <!-- Site Header -->
-    <header class="site-header">
-      <div class="container">
-        <div class="header-content">
-          <a href="index.html" class="site-logo" aria-label="Homepage">
-            <span class="logo">Strong Password Checker</span>
-          </a>
-          <button class="btn btn-share" aria-label="Share this tool">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="100"
-              height="100"
-              viewBox="0 0 48 48"
-              class="icon-share"
-            >
-              <path
-                d="M 35.484375 5.984375 A 1.50015 1.50015 0 0 0 34.439453 8.5605469 L 36.878906 11 L 35.5 11 C 23.64339 11 14 20.64339 14 32.5 A 1.50015 1.50015 0 1 0 17 32.5 C 17 22.26461 25.26461 14 35.5 14 L 36.878906 14 L 34.439453 16.439453 A 1.50015 1.50015 0 1 0 36.560547 18.560547 L 41.431641 13.689453 A 1.50015 1.50015 0 0 0 41.423828 11.302734 L 36.560547 6.4394531 A 1.50015 1.50015 0 0 0 35.484375 5.984375 z M 12.5 6 C 8.9280619 6 6 8.9280619 6 12.5 L 6 35.5 C 6 39.071938 8.9280619 42 12.5 42 L 35.5 42 C 39.071938 42 42 39.071938 42 35.5 L 42 27.5 A 1.50015 1.50015 0 1 0 39 27.5 L 39 35.5 C 39 37.450062 37.450062 39 35.5 39 L 12.5 39 C 10.549938 39 9 37.450062 9 35.5 L 9 12.5 C 9 10.549938 10.549938 9 12.5 9 L 20.5 9 A 1.50015 1.50015 0 1 0 20.5 6 L 12.5 6 z"
-              ></path>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="brand-text">SecurePass</span>
+        </div>
+        <div class="nav-actions">
+          <button class="nav-btn" id="theme-toggle" aria-label="Toggle theme">
+            <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+              <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+          <button class="nav-btn share-btn" aria-label="Share this tool">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 12V20A2 2 0 0 0 6 22H18A2 2 0 0 0 20 20V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="16,6 12,2 8,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="12" y1="2" x2="12" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             Share
           </button>
         </div>
       </div>
-    </header>
+    </nav>
 
-    <main>
-      <!-- PASSWORD CHECKER TOOL -->
-      <section
-        class="password-tool"
-        itemscope
-        itemtype="https://schema.org/WebApplication"
-      >
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
         <div class="container">
-          <div class="tool-intro">
-            <p class="subheading">Unbreakable Passwords Made Easy</p>
-            <h1>
-              Check Password Strength Instantly – Your Free Password Checker
-              Online
-            </h1>
-            <p class="paragraph">
-              Use our password checker to evaluate the strength of your password
-              and ensure it's safe. Our tool shows how long it would take to
-              crack your password and helps you create a more secure one.
-            </p>
-          </div>
-
-          <div class="tool-interface">
-            <p class="password-tip">
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-6 icon-tips"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
-                  />
-                </svg>
-              </span>
-              We never store your passwords, and even if we did, we wouldn’t
-              know who they belong to.
-            </p>
-
-            <form
-              class="password-form"
-              itemprop="applicationCategory"
-              content="Security Tool"
-            >
-              <label for="password-input" class="visually-hidden"
-                >Enter your password:</label
-              >
-              <input
-                type="password"
-                id="password-input"
-                placeholder="Enter your password here"
-                class="input-password"
-                itemprop="input"
-              />
-              <div class="action-buttons">
-                <!-- SHOW OR HIDE PASSWORD -->
-                <button
-                  type="button"
-                  class="btn-icon toggle-visibility"
-                  aria-label="Show or hide password"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    width="50"
-                    height="50"
-                    viewBox="0 0 48 48"
-                    class="icon eye-close"
-                  >
-                    <path
-                      d="M 42.470703 3.9863281 A 1.50015 1.50015 0 0 0 41.439453 4.4394531 L 28.025391 17.853516 C 28.02058 17.85139 28.016533 17.847821 28.011719 17.845703 L 25.652344 20.205078 C 25.657802 20.206406 25.662515 20.209597 25.667969 20.210938 L 17.210938 28.667969 C 17.209447 28.661908 17.206553 28.656457 17.205078 28.650391 L 14.845703 31.009766 C 14.848052 31.015107 14.851157 31.020054 14.853516 31.025391 L 4.4394531 41.439453 A 1.50015 1.50015 0 1 0 6.5605469 43.560547 L 16.513672 33.607422 C 18.345732 35.683816 21.01901 37 24 37 C 29.514 37 34 32.514 34 27 C 34 24.019566 32.683637 21.345974 30.607422 19.513672 L 35.052734 15.068359 C 39.90447 17.90912 43.668811 22.496845 45.050781 27.869141 C 45.220781 28.549141 45.83 29 46.5 29 C 46.62 29 46.749141 28.989219 46.869141 28.949219 C 47.679141 28.749219 48.159219 27.930859 47.949219 27.130859 C 46.409379 21.128251 42.461227 16.073087 37.277344 12.84375 L 43.560547 6.5605469 A 1.50015 1.50015 0 0 0 42.470703 3.9863281 z M 23.990234 9 C 12.820234 9 2.7507813 16.620859 0.05078125 27.130859 C -0.15921875 27.930859 0.32085937 28.749219 1.1308594 28.949219 C 1.9308594 29.159219 2.7492187 28.679141 2.9492188 27.869141 C 5.2792187 18.819141 14.330234 12 23.990234 12 C 25.700234 12 27.389531 12.209141 29.019531 12.619141 L 31.480469 10.160156 C 29.090469 9.4001562 26.570234 9 23.990234 9 z M 24 17 C 18.486 17 14 21.486 14 27 C 14 27.197 14.017297 27.390938 14.029297 27.585938 L 17.751953 23.863281 C 18.428953 22.521281 19.521281 21.428953 20.863281 20.751953 L 24.583984 17.029297 C 24.389984 17.017297 24.197 17 24 17 z M 28.472656 21.648438 C 30.00901 22.931321 31 24.845705 31 27 C 31 30.859 27.86 34 24 34 C 21.845705 34 19.931321 33.009291 18.648438 31.472656 L 21.488281 28.632812 A 3 3 0 0 0 24 30 A 3 3 0 0 0 25.632812 24.488281 L 28.472656 21.648438 z"
-                    ></path>
-                  </svg>
-                  <!-- Eye Open SVG (Hidden by default) -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    width="50"
-                    height="50"
-                    viewBox="0 0 48 48"
-                    class="eye-open"
-                    style="display: none"
-                  >
-                    <path
-                      d="M 23.986328 9 C 12.666705 9 2.6928719 16.845918 0.046875 27.126953 A 1.5002454 1.5002454 0 0 0 2.953125 27.873047 C 5.2331281 19.014082 14.065951 12 23.986328 12 C 33.906705 12 42.767507 19.01655 45.046875 27.873047 A 1.5002454 1.5002454 0 0 0 47.953125 27.126953 C 45.306493 16.84345 35.305951 9 23.986328 9 z M 24.001953 17 C 18.681885 17 14.337891 21.343999 14.337891 26.664062 C 14.337891 31.984127 18.681885 36.330078 24.001953 36.330078 C 29.322021 36.330078 33.667969 31.984126 33.667969 26.664062 C 33.667969 21.343999 29.322021 17 24.001953 17 z M 24.001953 20 C 27.700702 20 30.667969 22.965317 30.667969 26.664062 C 30.667969 30.36281 27.700702 33.330078 24.001953 33.330078 C 20.303205 33.330078 17.337891 30.362809 17.337891 26.664062 C 17.337891 22.965317 20.303205 20 24.001953 20 z"
-                    ></path>
-                  </svg>
-                </button>
-                <!-- COPY PASSWORD -->
-                <button
-                  type="button"
-                  class="btn-icon copy-password"
-                  aria-label="Copy password"
-                >
-                  <!-- COPY -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    width="50"
-                    height="50"
-                    viewBox="0 0 48 48"
-                    class="icon icon-copy"
-                  >
-                    <path
-                      d="M 18.5 5 C 15.480226 5 13 7.4802259 13 10.5 L 13 32.5 C 13 35.519774 15.480226 38 18.5 38 L 34.5 38 C 37.519774 38 40 35.519774 40 32.5 L 40 10.5 C 40 7.4802259 37.519774 5 34.5 5 L 18.5 5 z M 18.5 8 L 34.5 8 C 35.898226 8 37 9.1017741 37 10.5 L 37 32.5 C 37 33.898226 35.898226 35 34.5 35 L 18.5 35 C 17.101774 35 16 33.898226 16 32.5 L 16 10.5 C 16 9.1017741 17.101774 8 18.5 8 z M 11 10 L 9.78125 10.8125 C 8.66825 11.5545 8 12.803625 8 14.140625 L 8 33.5 C 8 38.747 12.253 43 17.5 43 L 30.859375 43 C 32.197375 43 33.4465 42.33175 34.1875 41.21875 L 35 40 L 17.5 40 C 13.91 40 11 37.09 11 33.5 L 11 10 z"
-                    ></path>
-                  </svg>
-                  <!-- COPY SUCCESS (Hidden by default) -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    width="100"
-                    height="100"
-                    viewBox="0 0 48 48"
-                    style="display: none"
-                    class="icon copy-success"
-                  >
-                    <path
-                      d="M 24 4 C 12.972 4 4 12.972 4 24 C 4 35.028 12.972 44 24 44 C 35.028 44 44 35.028 44 24 C 44 20.791 43.222047 17.767172 41.873047 15.076172 L 39.628906 17.320312 C 40.508906 19.371312 41 21.629 41 24 C 41 33.374 33.374 41 24 41 C 14.626 41 7 33.374 7 24 C 7 14.626 14.626 7 24 7 C 28.446 7 32.485578 8.7292031 35.517578 11.533203 L 37.638672 9.4121094 C 34.061672 6.0651094 29.273 4 24 4 z M 39.470703 10.986328 A 1.50015 1.50015 0 0 0 38.439453 11.439453 L 21.5 28.378906 L 17.560547 24.439453 A 1.50015 1.50015 0 1 0 15.439453 26.560547 L 20.439453 31.560547 A 1.50015 1.50015 0 0 0 22.560547 31.560547 L 40.560547 13.560547 A 1.50015 1.50015 0 0 0 39.470703 10.986328 z"
-                    ></path>
-                  </svg>
-                </button>
-                <!-- GENERATE RANDOM PASSWORD -->
-                <button
-                  type="button"
-                  class="btn-icon generate-password"
-                  aria-label="Generate random password"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    width="50"
-                    height="50"
-                    viewBox="0 0 48 48"
-                    class="icon icon-random"
-                  >
-                    <path
-                      d="M 24 3.9882812 C 22.514682 3.9882813 21.030361 4.3356862 19.671875 5.03125 A 1.50015 1.50015 0 0 0 19.667969 5.0332031 L 7.9824219 11.048828 C 6.1540644 11.99046 5 13.882081 5 15.939453 L 5 32.060547 C 5 34.117292 6.1527495 36.008284 7.9824219 36.949219 L 19.667969 42.966797 A 1.50015 1.50015 0 0 0 19.669922 42.96875 C 22.386894 44.359878 25.611153 44.359878 28.328125 42.96875 A 1.50015 1.50015 0 0 0 28.332031 42.966797 L 40.017578 36.949219 C 41.845936 36.007587 42.998047 34.117292 42.998047 32.060547 L 42.998047 15.939453 C 42.998047 13.883203 41.846485 11.991947 40.017578 11.050781 L 40.015625 11.050781 L 28.332031 5.0332031 A 1.50015 1.50015 0 0 0 28.330078 5.03125 C 26.971639 4.3356831 25.485318 3.9882812 24 3.9882812 z M 24 6.9882812 C 25.015682 6.9882812 26.032376 7.2266888 26.962891 7.703125 L 38.642578 13.716797 A 1.50015 1.50015 0 0 0 38.644531 13.71875 C 39.478859 14.147815 39.998047 15.000198 39.998047 15.939453 L 39.998047 32.060547 C 39.998047 32.999802 39.478221 33.852835 38.642578 34.283203 L 26.960938 40.296875 C 25.101208 41.249082 22.90122 41.249659 21.041016 40.298828 L 21.037109 40.296875 L 9.3554688 34.283203 A 1.50015 1.50015 0 0 0 9.3554688 34.28125 C 8.5210871 33.852185 8 32.999802 8 32.060547 L 8 15.939453 C 8 14.998825 8.5198262 14.147165 9.3554688 13.716797 L 21.039062 7.703125 C 21.969577 7.2266888 22.984318 6.9882813 24 6.9882812 z M 24 12 A 2.5 1.5 0 0 0 24 15 A 2.5 1.5 0 0 0 24 12 z M 11.470703 14.490234 A 1.50015 1.50015 0 0 0 10.808594 17.330078 L 19.640625 21.919922 C 20.548315 22.391321 21.515599 22.691433 22.5 22.849609 L 22.5 37.5 A 1.50015 1.50015 0 1 0 25.5 37.5 L 25.5 22.849609 C 26.483743 22.691334 27.450315 22.391018 28.357422 21.919922 A 1.50015 1.50015 0 0 0 28.359375 21.919922 L 37.191406 17.332031 A 1.5007827 1.5007827 0 1 0 35.808594 14.667969 L 26.974609 19.257812 C 26.061315 19.731775 25.065341 19.971467 24.068359 19.982422 A 1.50015 1.50015 0 0 0 23.976562 19.978516 A 1.50015 1.50015 0 0 0 23.925781 19.982422 C 22.929514 19.971292 21.935978 19.731731 21.023438 19.257812 L 12.191406 14.669922 A 1.50015 1.50015 0 0 0 11.470703 14.490234 z M 11.5 20 A 1.5 2.5 0 0 0 11.5 25 A 1.5 2.5 0 0 0 11.5 20 z M 35.5 21 A 1.5 2.5 0 0 0 35.5 26 A 1.5 2.5 0 0 0 35.5 21 z M 15.5 26 A 1.5 2.5 0 0 0 15.5 31 A 1.5 2.5 0 0 0 15.5 26 z M 30.5 30 A 1.5 2.5 0 0 0 30.5 35 A 1.5 2.5 0 0 0 30.5 30 z M 19.5 32 A 1.5 2.5 0 0 0 19.5 37 A 1.5 2.5 0 0 0 19.5 32 z"
-                    ></path>
-                  </svg>
-                </button>
-              </div>
-              <div class="progress-bar">
-                <div id="progress-bar" class="progress"></div>
-              </div>
-            </form>
-
-            <div class="password-feedback">
-              <p class="password-length-info">
-                <span class="char-count">0</span> characters containing:
-              </p>
-              <div class="password-criteria">
-                <p class="has-uppercase">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    width="100"
-                    height="100"
-                    viewBox="0 0 50 50"
-                    class="icon-check icon-upper"
-                  >
-                    <path
-                      d="M 25 2 C 12.317 2 2 12.317 2 25 C 2 37.683 12.317 48 25 48 C 37.683 48 48 37.683 48 25 C 48 20.44 46.660281 16.189328 44.363281 12.611328 L 42.994141 14.228516 C 44.889141 17.382516 46 21.06 46 25 C 46 36.579 36.579 46 25 46 C 13.421 46 4 36.579 4 25 C 4 13.421 13.421 4 25 4 C 30.443 4 35.393906 6.0997656 39.128906 9.5097656 L 40.4375 7.9648438 C 36.3525 4.2598437 30.935 2 25 2 z M 43.236328 7.7539062 L 23.914062 30.554688 L 15.78125 22.96875 L 14.417969 24.431641 L 24.083984 33.447266 L 44.763672 9.046875 L 43.236328 7.7539062 z"
-                    ></path>
-                  </svg>
-                  Uppercase
-                </p>
-                <p class="has-lowercase">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    width="100"
-                    height="100"
-                    viewBox="0 0 50 50"
-                    class="icon-check icon-lower"
-                  >
-                    <path
-                      d="M 25 2 C 12.317 2 2 12.317 2 25 C 2 37.683 12.317 48 25 48 C 37.683 48 48 37.683 48 25 C 48 20.44 46.660281 16.189328 44.363281 12.611328 L 42.994141 14.228516 C 44.889141 17.382516 46 21.06 46 25 C 46 36.579 36.579 46 25 46 C 13.421 46 4 36.579 4 25 C 4 13.421 13.421 4 25 4 C 30.443 4 35.393906 6.0997656 39.128906 9.5097656 L 40.4375 7.9648438 C 36.3525 4.2598437 30.935 2 25 2 z M 43.236328 7.7539062 L 23.914062 30.554688 L 15.78125 22.96875 L 14.417969 24.431641 L 24.083984 33.447266 L 44.763672 9.046875 L 43.236328 7.7539062 z"
-                    ></path>
-                  </svg>
-                  Lowercase
-                </p>
-                <p class="has-numbers">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    width="100"
-                    height="100"
-                    viewBox="0 0 50 50"
-                    class="icon-check icon-number"
-                  >
-                    <path
-                      d="M 25 2 C 12.317 2 2 12.317 2 25 C 2 37.683 12.317 48 25 48 C 37.683 48 48 37.683 48 25 C 48 20.44 46.660281 16.189328 44.363281 12.611328 L 42.994141 14.228516 C 44.889141 17.382516 46 21.06 46 25 C 46 36.579 36.579 46 25 46 C 13.421 46 4 36.579 4 25 C 4 13.421 13.421 4 25 4 C 30.443 4 35.393906 6.0997656 39.128906 9.5097656 L 40.4375 7.9648438 C 36.3525 4.2598437 30.935 2 25 2 z M 43.236328 7.7539062 L 23.914062 30.554688 L 15.78125 22.96875 L 14.417969 24.431641 L 24.083984 33.447266 L 44.763672 9.046875 L 43.236328 7.7539062 z"
-                    ></path>
-                  </svg>
-                  Numbers
-                </p>
-                <p class="has-symbols">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    width="100"
-                    height="100"
-                    viewBox="0 0 50 50"
-                    class="icon-check icon-symbol"
-                  >
-                    <path
-                      d="M 25 2 C 12.317 2 2 12.317 2 25 C 2 37.683 12.317 48 25 48 C 37.683 48 48 37.683 48 25 C 48 20.44 46.660281 16.189328 44.363281 12.611328 L 42.994141 14.228516 C 44.889141 17.382516 46 21.06 46 25 C 46 36.579 36.579 46 25 46 C 13.421 46 4 36.579 4 25 C 4 13.421 13.421 4 25 4 C 30.443 4 35.393906 6.0997656 39.128906 9.5097656 L 40.4375 7.9648438 C 36.3525 4.2598437 30.935 2 25 2 z M 43.236328 7.7539062 L 23.914062 30.554688 L 15.78125 22.96875 L 14.417969 24.431641 L 24.083984 33.447266 L 44.763672 9.046875 L 43.236328 7.7539062 z"
-                    ></path>
-                  </svg>
-                  Symbols
-                </p>
-              </div>
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="badge-icon">🔒</span>
+              <span>Professional Security Tool</span>
             </div>
-            <div class="password-results hidden">
-              <p class="time-box" >
-                Time it takes to crack your password
-                <span id="crack-time" class="crack-time-value"></span>
-              </p>
-              <div class="strength-guesses">
-                <p>
-                  Password Strength
-                  <span class="strength-value"></span>
-                </p>
-                <p>
-                  Number of Guesses crack your password
-                  <span id="guesses" class="guess-count"></span>
-                </p>
+            <h1 class="hero-title">
+              Analyze Your Password Strength
+              <span class="gradient-text">Instantly</span>
+            </h1>
+            <p class="hero-description">
+              Get real-time feedback on your password security with our advanced analyzer. 
+              Discover vulnerabilities, receive expert recommendations, and generate unbreakable passwords.
+            </p>
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-number">10M+</span>
+                <span class="stat-label">Passwords Analyzed</span>
               </div>
-              <div class="suggestion">
-                <p class="password-warnings">
-                  <span id="warning" class="warning-message"></span>
-                </p>
-                <p class="password-suggestions">
-                  <span id="suggestions" class="suggestion-text"> </span>
-                </p>
+              <div class="stat-item">
+                <span class="stat-number">99.9%</span>
+                <span class="stat-label">Accuracy Rate</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Data Stored</span>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- Password Analyzer Tool -->
+      <section class="analyzer-section">
+        <div class="container">
+          <div class="analyzer-card">
+            <div class="security-notice">
+              <div class="notice-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 9V13M12 17H12.01M21 12A9 9 0 1 1 3 12A9 9 0 0 1 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="notice-content">
+                <h3>Your Privacy is Protected</h3>
+                <p>All analysis happens locally in your browser. We never store or transmit your passwords.</p>
+              </div>
+            </div>
+
+            <div class="password-input-section">
+              <label for="password-input" class="input-label">Enter Your Password</label>
+              <div class="input-wrapper">
+                <input
+                  type="password"
+                  id="password-input"
+                  class="password-input"
+                  placeholder="Type your password here..."
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+                <div class="input-actions">
+                  <button type="button" class="action-btn toggle-visibility" aria-label="Toggle password visibility">
+                    <svg class="eye-closed" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20C7 20 2.73 16.39 1 12A18.45 18.45 0 0 1 5.06 5.06L17.94 17.94Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M1 1L23 23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M10.59 10.59A2 2 0 0 0 13.41 13.41" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg class="eye-open" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                      <path d="M1 12S5 4 12 4S23 12 23 12S19 20 12 20S1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                  </button>
+                  <button type="button" class="action-btn copy-password" aria-label="Copy password">
+                    <svg class="copy-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                      <path d="M5 15H4A2 2 0 0 1 2 13V4A2 2 0 0 1 4 2H13A2 2 0 0 1 15 4V5" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <svg class="copy-success" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                      <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button type="button" class="action-btn generate-password" aria-label="Generate secure password">
+                    <svg class="generate-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 4V10H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M23 20V14H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10M23 14L18.36 18.36A9 9 0 0 1 3.51 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="strength-indicator">
+                  <div class="strength-bar" id="strength-bar"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="password-analysis">
+              <div class="analysis-header">
+                <h3>Password Analysis</h3>
+                <div class="character-count">
+                  <span class="count-number">0</span>
+                  <span class="count-label">characters</span>
+                </div>
+              </div>
+
+              <div class="criteria-grid">
+                <div class="criterion-item" data-criterion="uppercase">
+                  <div class="criterion-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <span class="criterion-text">Uppercase Letters</span>
+                </div>
+                <div class="criterion-item" data-criterion="lowercase">
+                  <div class="criterion-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <span class="criterion-text">Lowercase Letters</span>
+                </div>
+                <div class="criterion-item" data-criterion="numbers">
+                  <div class="criterion-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <span class="criterion-text">Numbers</span>
+                </div>
+                <div class="criterion-item" data-criterion="symbols">
+                  <div class="criterion-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <span class="criterion-text">Special Characters</span>
+                </div>
+                <div class="criterion-item" data-criterion="length">
+                  <div class="criterion-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <span class="criterion-text">8+ Characters</span>
+                </div>
+                <div class="criterion-item" data-criterion="common">
+                  <div class="criterion-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <span class="criterion-text">Not Common</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="results-section hidden" id="results-section">
+              <div class="results-grid">
+                <div class="result-card strength-card">
+                  <div class="card-header">
+                    <h4>Password Strength</h4>
+                    <div class="strength-badge" id="strength-badge">
+                      <span class="badge-text">Very Weak</span>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div class="strength-visual">
+                      <div class="strength-circle" id="strength-circle">
+                        <svg viewBox="0 0 36 36" class="circular-chart">
+                          <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                          <path class="circle" id="strength-progress" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        </svg>
+                        <div class="percentage" id="strength-percentage">0%</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="result-card crack-time-card">
+                  <div class="card-header">
+                    <h4>Time to Crack</h4>
+                    <div class="info-tooltip" title="Estimated time for a computer to crack your password">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9,9H15V15H9V9Z" fill="currentColor"/>
+                        <path d="M12 6V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div class="crack-time-display">
+                      <span class="time-value" id="crack-time">-</span>
+                      <span class="time-label">to crack offline</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="result-card guesses-card">
+                  <div class="card-header">
+                    <h4>Possible Combinations</h4>
+                  </div>
+                  <div class="card-content">
+                    <div class="guesses-display">
+                      <span class="guesses-value" id="guesses-count">-</span>
+                      <span class="guesses-label">possible guesses</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="feedback-section">
+                <div class="feedback-card warnings-card" id="warnings-card" style="display: none;">
+                  <div class="card-header">
+                    <div class="warning-icon">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.29 3.86L1.82 18A2 2 0 0 0 3.54 21H20.46A2 2 0 0 0 22.18 18L13.71 3.86A2 2 0 0 0 10.29 3.86Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <h4>Security Warnings</h4>
+                  </div>
+                  <div class="card-content">
+                    <p id="warning-text">-</p>
+                  </div>
+                </div>
+
+                <div class="feedback-card suggestions-card" id="suggestions-card" style="display: none;">
+                  <div class="card-header">
+                    <div class="suggestion-icon">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9.09 9A3 3 0 0 1 15 9H15A3 3 0 0 1 15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 17H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <h4>Recommendations</h4>
+                  </div>
+                  <div class="card-content">
+                    <p id="suggestions-text">-</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Password Generator Section -->
+      <section class="generator-section">
+        <div class="container">
+          <div class="generator-card">
+            <div class="generator-header">
+              <h2>Advanced Password Generator</h2>
+              <p>Create ultra-secure passwords tailored to your needs</p>
+            </div>
+            
+            <div class="generator-controls">
+              <div class="control-group">
+                <label for="length-slider" class="control-label">
+                  Password Length: <span id="length-value">16</span>
+                </label>
+                <input type="range" id="length-slider" class="length-slider" min="8" max="128" value="16">
+              </div>
+              
+              <div class="options-grid">
+                <label class="option-item">
+                  <input type="checkbox" id="include-uppercase" checked>
+                  <span class="checkmark"></span>
+                  <span class="option-text">Uppercase (A-Z)</span>
+                </label>
+                <label class="option-item">
+                  <input type="checkbox" id="include-lowercase" checked>
+                  <span class="checkmark"></span>
+                  <span class="option-text">Lowercase (a-z)</span>
+                </label>
+                <label class="option-item">
+                  <input type="checkbox" id="include-numbers" checked>
+                  <span class="checkmark"></span>
+                  <span class="option-text">Numbers (0-9)</span>
+                </label>
+                <label class="option-item">
+                  <input type="checkbox" id="include-symbols" checked>
+                  <span class="checkmark"></span>
+                  <span class="option-text">Symbols (!@#$%)</span>
+                </label>
+                <label class="option-item">
+                  <input type="checkbox" id="exclude-ambiguous">
+                  <span class="checkmark"></span>
+                  <span class="option-text">Exclude Ambiguous</span>
+                </label>
+                <label class="option-item">
+                  <input type="checkbox" id="no-repeating">
+                  <span class="checkmark"></span>
+                  <span class="option-text">No Repeating</span>
+                </label>
+              </div>
+              
+              <button class="generate-btn" id="generate-new-password">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 4V10H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M23 20V14H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10M23 14L18.36 18.36A9 9 0 0 1 3.51 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Generate New Password
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Security Tips Section -->
+      <section class="tips-section">
+        <div class="container">
+          <div class="tips-header">
+            <h2>Password Security Best Practices</h2>
+            <p>Follow these expert recommendations to maximize your digital security</p>
+          </div>
+          
+          <div class="tips-grid">
+            <div class="tip-card">
+              <div class="tip-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                  <path d="M7 11V7A5 5 0 0 1 17 7V11" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <h3>Use Unique Passwords</h3>
+              <p>Never reuse passwords across multiple accounts. Each account should have its own unique, strong password.</p>
+            </div>
+            
+            <div class="tip-card">
+              <div class="tip-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <h3>Enable 2FA</h3>
+              <p>Add an extra layer of security with two-factor authentication wherever possible.</p>
+            </div>
+            
+            <div class="tip-card">
+              <div class="tip-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 2H6A2 2 0 0 0 4 4V20A2 2 0 0 0 6 22H18A2 2 0 0 0 20 20V8L14 2Z" stroke="currentColor" stroke-width="2"/>
+                  <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2"/>
+                  <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2"/>
+                  <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2"/>
+                  <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <h3>Use a Password Manager</h3>
+              <p>Let a trusted password manager generate and store complex passwords for all your accounts.</p>
+            </div>
+            
+            <div class="tip-card">
+              <div class="tip-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 22S2 16 2 10A10 10 0 0 1 22 10C22 16 12 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M9 10L12 13L22 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3>Regular Updates</h3>
+              <p>Change passwords regularly, especially for critical accounts like banking and email.</p>
+            </div>
+            
+            <div class="tip-card">
+              <div class="tip-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.29 3.86L1.82 18A2 2 0 0 0 3.54 21H20.46A2 2 0 0 0 22.18 18L13.71 3.86A2 2 0 0 0 10.29 3.86Z" stroke="currentColor" stroke-width="2"/>
+                  <line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <h3>Avoid Personal Info</h3>
+              <p>Don't use personal information like birthdays, names, or addresses in your passwords.</p>
+            </div>
+            
+            <div class="tip-card">
+              <div class="tip-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 12S5 4 12 4S23 12 23 12S19 20 12 20S1 12 1 12Z" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <h3>Monitor for Breaches</h3>
+              <p>Regularly check if your accounts have been compromised in data breaches and update passwords accordingly.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-    <script src="
-    https://cdn.jsdelivr.net/npm/password-generator-js@2.1.3/index.min.js"></script>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="brand-text">SecurePass</span>
+          </div>
+          <div class="footer-text">
+            <p>&copy; 2024 SecurePass. Your privacy and security are our top priorities.</p>
+            <p>All password analysis is performed locally in your browser.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+      <div class="toast-content">
+        <div class="toast-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="toast-message">Password copied to clipboard!</span>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/password-generator-js@2.1.3/index.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/zxcvbn@4.4.2/dist/zxcvbn.min.js"></script>
-    <script src="script.js?v=1234"></script>
+    <script src="script.js?v=2024"></script>
   </body>
 </html>
